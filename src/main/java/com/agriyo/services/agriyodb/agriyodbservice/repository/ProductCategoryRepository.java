@@ -1,0 +1,12 @@
+package com.agriyo.services.agriyodb.agriyodbservice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.agriyo.services.agriyodb.agriyodbservice.model.ProductCategory;
+public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Integer> {
+
+	
+
+
+}
+
