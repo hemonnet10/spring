@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.agriyo.services.agriyodb.agriyodbservice.dto.SearchInput;
+import com.agriyo.services.agriyodb.agriyodbservice.dto.SearchResult;
 import com.agriyo.services.agriyodb.agriyodbservice.model.BaseBO;
+import com.agriyo.services.agriyodb.agriyodbservice.model.FarmerCrop;
 import com.agriyo.services.agriyodb.agriyodbservice.model.Order;
 import com.agriyo.services.agriyodb.agriyodbservice.model.OrderAssign;
 import com.agriyo.services.agriyodb.agriyodbservice.model.User;
@@ -79,6 +82,11 @@ public class OrderResource {
 	 return baseBO;
 	}
 	
-	
+	@PostMapping("/search")
+    public List<SearchResult> search(@RequestBody SearchInput searchInput) {
+		System.out.println("in search");
+		List<SearchResult> list= orderRepository.search(searchInput);
+		return list;
+	}
 	
 }

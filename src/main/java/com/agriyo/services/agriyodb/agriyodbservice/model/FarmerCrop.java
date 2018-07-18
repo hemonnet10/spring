@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -33,6 +34,9 @@ public class FarmerCrop implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Crop crop;
 	
+	private Integer volume;
+	private Double price;
+	private String unit;
 	
 	/*@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "FARMER_ID", nullable = false)
@@ -60,6 +64,24 @@ public class FarmerCrop implements Serializable{
 	}
 	public void setFarmerId(Integer farmerId) {
 		this.farmerId = farmerId;
+	}
+	public Integer getVolume() {
+		return volume;
+	}
+	public void setVolume(Integer volume) {
+		this.volume = volume;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public String getUnit() {
+		return unit;
+	}
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 	
 	

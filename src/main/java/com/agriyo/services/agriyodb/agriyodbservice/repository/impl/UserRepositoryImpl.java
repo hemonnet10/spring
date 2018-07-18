@@ -57,10 +57,10 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 	@Override
 	public void saveFarmerCrops(List<FarmerCrop> farmerCrops) {
 		
-		Query deleteQuery = em.createQuery(
+		/*Query deleteQuery = em.createQuery(
 	            "DELETE FROM FarmerCrop o WHERE farmerId = :farmerId");
 		deleteQuery.setParameter("farmerId",farmerCrops.get(0).getFarmerId());
-		deleteQuery.executeUpdate();
+		deleteQuery.executeUpdate();*/
 //		em.flush();
 		for (FarmerCrop farmerCrop : farmerCrops) {
 			if (farmerCrop.getId() != null) {
