@@ -82,7 +82,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
 		StringBuilder orderQueryStringBuilder = new StringBuilder(
 				"select c.Id as id, sum(IFNULL(o.quantity,0)) as volume "
 				+" from m_crop_product c "
-				+ "join t_order o on o.CROP_ID=c.ID "
+				+ "join t_order o on o.CROP_ID=c.ID join t_user u on u.ID=o.ORDER_RECEIVED_BY "
 				+ "where c.CROP_NAME like ? ");
 
 		

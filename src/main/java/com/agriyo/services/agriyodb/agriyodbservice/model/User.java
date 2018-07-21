@@ -1,5 +1,6 @@
 package com.agriyo.services.agriyodb.agriyodbservice.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,6 +33,8 @@ public class User{
 	private String gender;
 	private String mobile;
 	private String mobile2;
+	private String email;
+
 	@Column(name="auth_id")
 	private String authId;
 	private String password;
@@ -43,6 +46,8 @@ public class User{
 	private String country;
 	private String state;
 	private String pincode;
+	private Date dob;
+
 	@Column(name="IS_ACTIVE")
 	private String isActive;
 	@Column(name="CREATED_BY")
@@ -50,6 +55,17 @@ public class User{
 	@Column(name="CREATE_TIME")
 	private String createdTime;
 
+	
+	@Column(name="COMPANY_NAME")
+	private String companyName;
+	@Column(name="COMPANY_TYPE")
+	private String companyType;
+	@Column(name="CIN")
+	private String cin;
+	@Column(name="DESIGNATION")
+	private String designation;
+
+	
 	/*@JsonIgnoreProperties("farmerCrops")
 	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.REMOVE,mappedBy = "farmer")
 	private List<FarmerCrop> farmerCrops;
@@ -154,17 +170,41 @@ public class User{
 	public void setCreatedTime(String createdTime) {
 		this.createdTime = createdTime;
 	}
-/*	public List<FarmerCrop> getFarmerCrops() {
-		return farmerCrops;
+	public Date getDob() {
+		return dob;
 	}
-	public void setFarmerCrops(List<FarmerCrop> farmerCrops) {
-		this.farmerCrops = farmerCrops;
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
-	
-	public FarmerDetail getFarmerDetail() {
-		return farmerDetail;
+	public String getCompanyName() {
+		return companyName;
 	}
-	public void setFarmerDetail(FarmerDetail farmerDetail) {
-		this.farmerDetail = farmerDetail;
-	}*/
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public String getCompanyType() {
+		return companyType;
+	}
+	public void setCompanyType(String companyType) {
+		this.companyType = companyType;
+	}
+	public String getCin() {
+		return cin;
+	}
+	public void setCin(String cin) {
+		this.cin = cin;
+	}
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 }
