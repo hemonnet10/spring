@@ -24,11 +24,11 @@ public class CropResource {
 
 	@GetMapping("/getAllCropCategory")
 	public List<ProductCategory> getAllCategory(){
-		return productCategoryRepository.findAll();
+		return productCategoryRepository.findByIsActive("1");
 	}
 
 	@GetMapping("/getCropByCategory/{categoryId}")
 	public List<Crop> getCropByCategory(@PathVariable("categoryId") Integer categoryId){
-		return cropRepository.findByCategoryId(categoryId);
+		return cropRepository.findByCategoryIdAndIsActive(categoryId,"1");
 	}
 }

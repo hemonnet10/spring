@@ -74,7 +74,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
 	@Override
 	public List<SearchResult> search(SearchInput searchInput) {
 		StringBuilder queryStringBuilder = new StringBuilder(
-				"select c.Id as id, c.CROP_NAME as cropName, (sum(IFNULL(fc.volume,0))-sum(IFNULL(o.quantity,0))) as volume "
+				"select c.Id as id, c.CROP_NAME as cropName, sum(IFNULL(fc.volume,0)) as volume "
 				+ ",concat(u.CITY,', ',u.STATE) as location from t_farmer_crop fc "
 				+ "join m_crop_product c on fc.CROP_ID=c.ID join  t_user u on fc.FARMER_ID=u.ID left outer join t_order o on o.CROP_ID=fc.ID "
 				+ "where c.CROP_NAME like ? ");
